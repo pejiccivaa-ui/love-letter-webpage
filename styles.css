@@ -1,6 +1,6 @@
 body {
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  background: linear-gradient(135deg, #ffc1cc, #ffb6c1, #ff69b4);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,16 +10,21 @@ body {
 
 .container {
   text-align: center;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 192, 203, 0.9); /* blago roze */
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+}
+
+h1 {
+  color: #ff1493;
+  margin-bottom: 20px;
 }
 
 input {
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #ff69b4;
   width: 60%;
   margin-bottom: 15px;
   font-size: 16px;
@@ -30,19 +35,19 @@ button {
   font-size: 16px;
   border-radius: 10px;
   border: none;
-  background-color: #ff6b81;
+  background-color: #ff69b4;
   color: white;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #ff3b5c;
+  background-color: #ff1493;
 }
 
 #message {
   margin-top: 20px;
   font-size: 18px;
-  color: #ff3b5c;
+  color: #ff1493;
   font-weight: bold;
 }
 
