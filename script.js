@@ -5,16 +5,16 @@ const randomMessagesContainer = document.getElementById('randomMessages');
 const buttons = document.querySelectorAll('.magic-btn');
 
 const randomLoveMessages = [
-  "Ti si moj osmeh 😊",
+  "Sve si mi u životu",
   "Zauvek zajedno 💞",
-  "Moj anđele 💗",
-  "Ti si moj svet 🌸",
-  "Volim te beskrajno 💖"
+  "Moj mili 💗",
+  "Ti si moje sve",
+  "Volim te, mili"
 ];
 
 // Funkcija za lebdeća srca
-function createHearts(count) {
-  for(let i=0; i<count; i++){
+function createHearts(count = 1) {
+  for (let i = 0; i < count; i++) {
     const heart = document.createElement('div');
     heart.classList.add('heart');
     heart.textContent = '💗';
@@ -39,18 +39,18 @@ function showRandomMessage() {
 // Dugmad sa porukama
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {
-    const text = btn.getAttribute('data-msg');
+    const text = btn.dataset.msg; // sigurniji način nego getAttribute
     message.textContent = text;
     createHearts(5);
     showRandomMessage();
   });
 });
 
-// Input dugme enter
+// Enter u input polju
 userInput.addEventListener('keypress', e => {
-  if(e.key === 'Enter') {
+  if (e.key === 'Enter') {
     const text = userInput.value.trim();
-    if(text) {
+    if (text) {
       message.textContent = `Tvoja poruka: "${text}" 💕`;
       createHearts(5);
       showRandomMessage();
@@ -64,3 +64,4 @@ setInterval(() => createHearts(1), 1000);
 
 // Stalno nasumične poruke
 setInterval(() => showRandomMessage(), 4000);
+
