@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const rainHeartsBtn = document.getElementById('rainHeartsBtn');
 
   const randomLoveMessages = [
-    "Ti si moj svet",
-    "Zauvek zajedno 💞",
-    "Moj mili 💗",
-    "Ti si moje zauvek 🌸",
+    "Ti si moj svet",     
+    "Zauvek zajedno 💞",     
+    "Moj mili 💗",     
+    "Ti si moje zauvek 🌸",     
     "Volim te"
   ];
 
@@ -26,12 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Srca koja prate kursor
   document.addEventListener('mousemove', e => {
-    if(Math.random() < 0.05){ // povremeno, ne previše srca
+    if(Math.random() < 0.05){ 
       createHeart(e.clientX, e.clientY);
     }
   });
 
-  // Nasumične poruke
+  // Porukice
   function showRandomMessage() {
     const msg = document.createElement('div');
     msg.classList.add('random-msg');
@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => msg.remove(), 3000);
   }
 
-  // Dugme za nasumične poruke
   randomMsgBtn.addEventListener('click', showRandomMessage);
 
   // Dugme za kišu srca
@@ -53,6 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Stalno lebdeća srca u pozadini
-  setInterval(() => createHeart(Math.random() * window.innerWidth, Math.random() * window.innerHeight), 1500);
+  setInterval(() => createHeart(Math.random() * window.innerWidth, Math.random() * window.innerHeight), 2000);
 
 });
