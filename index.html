@@ -4,26 +4,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Za mog medu 💖</title>
+  <title>Za mog medu <3 </title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h1 class="animated-title">I love you ❤️</h1>
-    
-    <input type="text" id="userInput" placeholder="Upiši nešto slatko...">
-    
+    <!-- Pulsirajući natpis -->
+    <h1 class="animated-title">Volim te ❤️</h1>
+
+    <!-- Dugmad za interakcije -->
     <div class="buttons">
-      <button class="magic-btn" data-msg="❤️ Pošalji ❤️">Pošalji ❤️</button>
-      <button class="magic-btn" data-msg="💕 Ti si moj svet 💕">Ti si moj svet 💕</button>
-      <button class="magic-btn" data-msg="💖 Volim te zauvek 💖">Volim te zauvijek 💖</button>
+      <button id="randomMsgBtn" class="magic-btn">💌 Nasumična poruka</button>
+      <button id="rainHeartsBtn" class="magic-btn">🌸 Kiša srca</button>
     </div>
-    
-    <p id="message"></p>
-    <div id="hearts"></div>
+
+    <!-- Nasumične poruke -->
     <div id="randomMessages"></div>
+
+    <!-- Mini meda animacija -->
+    <div class="bear-container">
+      <div class="bear">
+        <div class="bear-head"></div>
+        <div class="bear-body">
+          <div class="bear-heart">💖</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Srca koja lebde na klik ili kursor -->
+    <div id="hearts"></div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
