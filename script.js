@@ -1,31 +1,35 @@
-const userInput = document.getElementById('userInput');
-const message = document.getElementById('message');
 const heartsContainer = document.getElementById('hearts');
 const randomMessagesContainer = document.getElementById('randomMessages');
-const buttons = document.querySelectorAll('.magic-btn');
+const randomMsgBtn = document.getElementById('randomMsgBtn');
+const rainHeartsBtn = document.getElementById('rainHeartsBtn');
 
 const randomLoveMessages = [
-  "Sve si mi u životu",
+  "Ti si moj osmeh 😊",
   "Zauvek zajedno 💞",
-  "Moj mili 💗",
-  "Ti si moje sve",
-  "Volim te, mili"
+  "Moj anđele 💗",
+  "Ti si moj svet 🌸",
+  "Volim te beskrajno 💖"
 ];
 
 // Funkcija za lebdeća srca
-function createHearts(count = 1) {
-  for (let i = 0; i < count; i++) {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.textContent = '💗';
-    heart.style.left = `${Math.random() * 90}%`;
-    heart.style.top = `${Math.random() * 80 + 10}%`;
-    heartsContainer.appendChild(heart);
-    setTimeout(() => heart.remove(), 2000);
-  }
+function createHeart(x = Math.random() * window.innerWidth, y = Math.random() * window.innerHeight) {
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  heart.textContent = '💗';
+  heart.style.left = `${x}px`;
+  heart.style.top = `${y}px`;
+  heartsContainer.appendChild(heart);
+  setTimeout(() => heart.remove(), 2000);
 }
 
-// Funkcija za nasumične poruke
+// Srca koja prate kursor
+document.addEventListener('mousemove', e => {
+  if(Math.random() < 0.05){ // samo povremeno za lep efekat
+    createHeart(e.clientX, e.clientY);
+  }
+});
+
+// Nasumične poruke
 function showRandomMessage() {
   const msg = document.createElement('div');
   msg.classList.add('random-msg');
@@ -36,32 +40,15 @@ function showRandomMessage() {
   setTimeout(() => msg.remove(), 3000);
 }
 
-// Dugmad sa porukama
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const text = btn.dataset.msg; // sigurniji način nego getAttribute
-    message.textContent = text;
-    createHearts(5);
-    showRandomMessage();
-  });
-});
+// Dugme za nasumične poruke
+randomMsgBtn.addEventListener('click', showRandomMessage);
 
-// Enter u input polju
-userInput.addEventListener('keypress', e => {
-  if (e.key === 'Enter') {
-    const text = userInput.value.trim();
-    if (text) {
-      message.textContent = `Tvoja poruka: "${text}" 💕`;
-      createHearts(5);
-      showRandomMessage();
-      userInput.value = '';
-    }
+// Dugme za kišu srca
+rainHeartsBtn.addEventListener('click', () => {
+  for(let i=0; i<30; i++){
+    createHeart(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
   }
 });
 
-// Stalno lebdeća srca
-setInterval(() => createHearts(1), 1000);
-
-// Stalno nasumične poruke
-setInterval(() => showRandomMessage(), 4000);
-
+// Stalno lebdeća srca u pozadini
+setInterval(() => createHeart(Math.random() * window.innerWidth, Math.random() * window.innerHeight), 1500);
