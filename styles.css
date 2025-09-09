@@ -2,10 +2,10 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   height: 100vh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   background: linear-gradient(135deg, #ffc1cc, #ffb6c1, #ff69b4);
   background-size: 400% 400%;
   animation: gradientBG 10s ease infinite;
@@ -28,24 +28,16 @@ body {
 }
 
 h1.animated-title {
+  font-size: 3em;
   color: #ff1493;
-  font-size: 2.5em;
   animation: pulse 2s infinite;
+  margin-bottom: 20px;
 }
 
 @keyframes pulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
-}
-
-input {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ff69b4;
-  width: 60%;
-  margin-bottom: 15px;
-  font-size: 16px;
 }
 
 .buttons {
@@ -70,13 +62,21 @@ input {
   box-shadow: 0 0 20px #ff1493;
 }
 
-#message {
-  margin-top: 20px;
+.random-msg {
+  position: absolute;
   font-size: 18px;
-  color: #ff1493;
+  color: #ff69b4;
   font-weight: bold;
+  animation: fadeOut 3s forwards;
+  pointer-events: none;
 }
 
+@keyframes fadeOut {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-50px); }
+}
+
+/* Srca */
 .heart {
   position: absolute;
   font-size: 24px;
@@ -89,16 +89,45 @@ input {
   100% { transform: translateY(-150px) scale(1.5); opacity: 0; }
 }
 
-.random-msg {
-  position: absolute;
-  font-size: 18px;
-  color: #ff69b4;
-  font-weight: bold;
-  animation: fadeOut 3s forwards;
-  pointer-events: none;
+/* Mini meda */
+.bear-container {
+  margin-top: 30px;
 }
 
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; transform: translateY(-50px); }
+.bear {
+  display: inline-block;
+  position: relative;
+}
+
+.bear-head {
+  width: 60px;
+  height: 60px;
+  background: #ffb6c1;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.bear-body {
+  width: 80px;
+  height: 100px;
+  background: #ffb6c1;
+  margin: -10px auto 0 auto;
+  border-radius: 50px 50px 40px 40px;
+  position: relative;
+}
+
+.bear-heart {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  animation: bearHeartPulse 1.5s infinite;
+}
+
+@keyframes bearHeartPulse {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.3); }
+  100% { transform: translateX(-50%) scale(1); }
 }
